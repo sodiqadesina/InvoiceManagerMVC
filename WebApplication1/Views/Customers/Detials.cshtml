@@ -1,0 +1,29 @@
+﻿@model WebApplication1.Entities.Customer
+
+<h2>Invoices for @Model.Name</h2>
+
+<p>Address: @Model.Address1</p>
+<!-- Include other customer details as needed -->
+
+<table>
+    <tr>
+        <th>Invoice #</th>
+        <th>Due date</th>
+        <th>Amount paid</th>
+        <!-- Other invoice details -->
+    </tr>
+
+    @foreach (var invoice in Model.Invoices)
+    {
+        <tr>
+            <td>@invoice.InvoiceId</td>
+            <td>@invoice.InvoiceDueDate</td>
+            <td>@invoice.PaymentTotal</td>
+            <!-- Other invoice details -->
+        </tr>
+    }
+</table>
+
+<!-- Form for adding a new invoice -->
+
+<a href="@Url.Action("Index")">Return to Customer List</a>

@@ -1,0 +1,14 @@
+﻿@model WebApplication1.Entities.Customer
+
+<h2>Delete Customer</h2>
+
+<h3>Are you sure you want to delete this customer?</h3>
+<!-- Display customer details like in the Details view -->
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.CustomerId)
+
+    <input type="submit" value="Delete" />
+    <a href="@Url.Action("Index")">Cancel</a>
+}

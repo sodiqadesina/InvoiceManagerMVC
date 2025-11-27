@@ -1,0 +1,70 @@
+﻿@model IEnumerable<WebApplication1.Models.CustomerViewModel>
+
+@{
+    ViewData["Title"] = "Customers";
+    var currentFilter = ViewBag.CurrentFilter as string;
+}
+
+<h2>@ViewData["Title"]</h2>
+
+
+
+<div class="Cus-Table">
+    
+    <div class="d-flex">
+        <a asp-action="AddOrEdit">Add a new customer</a>
+        @if (TempData["Message"] != null)
+        {
+
+            <div class="temp-message ms-auto" role="alert">
+                <p>@TempData["Message"] <a asp-action="UndoDelete" asp-route-id="@TempData["DeletedCustomerId"]">Undo</a> this delete.</p>
+            </div>
+        }
+    </div>
+
+    <div class="Cus-inner-Table mt-4">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var customer in Model)
+                {
+                    <tr>
+                        <td>@customer.Name</td>
+                        <td>@customer.Address1 @customer.Address2</td>
+                        <td>
+                            <a asp-controller="Invoice" asp-action="Index" asp-route-customerId="@customer.CustomerId" asp-route-alphaFilter="@ViewBag.CurrentFilter">Invoices</a> |
+                            <a asp-action="AddOrEdit" asp-route-id="@customer.CustomerId">Edit</a> |
+                            <a asp-action="Delete" asp-route-id="@customer.CustomerId">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+
+    <div class="btn-group mt-3 filter">
+        <a asp-action="Index" asp-route-alphaFilter="A-E" class="btn btn-default btn-spacer @(currentFilter == "A-E" ? "active" : "")">A - E</a>
+        <a asp-action="Index" asp-route-alphaFilter="F-K" class="btn btn-default  btn-spacer @(currentFilter == "F-K" ? "active" : "")">F - K</a>
+        <a asp-action="Index" asp-route-alphaFilter="L-R" class="btn btn-default btn-spacer @(currentFilter == "L-R" ? "active" : "")">L - R</a>
+        <a asp-action="Index" asp-route-alphaFilter="S-Z" class="btn btn-default @(currentFilter == "S-Z" ? "active" : "")">S - Z</a>
+    </div>
+</div>
+
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            // Set a timeout to hide the alert after 6 seconds
+            setTimeout(function () {
+                $(".temp-message").fadeOut("fast");
+            }, 6000); // 6000 milliseconds = 6 seconds
+        });
+    </script>
+}

@@ -1,0 +1,30 @@
+﻿@model WebApplication1.Models.CustomerInvoicesViewModel
+
+@if (Model.SelectedInvoiceId.HasValue && Model.SelectedInvoiceLineItems.Any())
+{
+    <h4>Line items for invoice #@Model.SelectedInvoiceId</h4>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Description</th>
+                <th>Amount</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var lineItem in Model.SelectedInvoiceLineItems)
+            {
+                <tr>
+                    <td>@lineItem.Description</td>
+                    <td>@lineItem.Amount.ToString("C")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <p>Total: @Model.SelectedInvoiceLineItems.Sum(li => li.Amount).ToString("C")</p>
+}
+else
+{
+    <p> No invoice line items!!!</p>
+}

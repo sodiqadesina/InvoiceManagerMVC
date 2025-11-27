@@ -1,0 +1,144 @@
+﻿@model WebApplication1.Models.CustomerViewModel
+
+@{
+    var isEditMode = Model.CustomerId > 0;
+    ViewData["Title"] = isEditMode ? "Edit Customer" : "Add Customer";
+}
+
+<div class="container mt-5 out-cont mx-auto">
+    <h2>@ViewData["Title"]</h2>
+
+    <form asp-action="AddOrEdit" method="post" class="customer-form p-2">
+        @if (isEditMode)
+        {
+            <input type="hidden" asp-for="CustomerId" />
+        }
+
+        <!--  Error message tracker -->
+        <div asp-validation-summary="All" class="text-danger d-none"></div>
+
+        <!-- Placeholder for generic error message -->
+        <div id="generic-error-message" class="alert alert-danger d-none" role="alert">
+            There are errors in the form. Please correct them and try again.
+        </div>
+
+
+        <!-- Name field -->
+        <div class="form-group d-flex justify-content-between align-items-center pb-3">
+            <label asp-for="Name" class="mr-2">Name:</label>
+            <div class="input-group ">
+                <span asp-validation-for="Name" class="text-danger"></span>
+                <input asp-for="Name" class="form-control mx-3" />
+            </div>
+        </div>
+
+        <!-- Address1 field -->
+        <div class="form-group d-flex justify-content-between align-items-center pb-3">
+            <label asp-for="Address1" class=" mr-2">Address1:</label>
+            <div class="input-group ">
+                <span asp-validation-for="Address1" class="text-danger"></span>
+                <input asp-for="Address1" class="form-control mx-3" />
+            </div>
+        </div>
+
+        <!-- Address2 field -->
+        <div class="form-group d-flex justify-content-between align-items-center pb-3">
+            <label asp-for="Address2" class=" mr-2">Address2:</label>
+            <div class="input-group ">
+                <span asp-validation-for="Address2" class="text-danger"></span>
+                <input asp-for="Address2" class="form-control mx-3" />
+            </div>
+        </div>
+
+        <!-- City field -->
+        <div class="form-group d-flex justify-content-between align-items-center pb-3">
+            <label asp-for="City" class=" mr-2">City:</label>
+            <div class="input-group ">
+                <span asp-validation-for="City" class="text-danger"></span>
+                <input asp-for="City" class="form-control mx-3" />
+            </div>
+        </div>
+
+        <!-- ProvinceOrState field -->
+        <div class="form-group d-flex justify-content-between align-items-center pb-3">
+            <label asp-for="ProvinceOrState" class=" mr-2">Province/State:</label>
+            <div class="input-group ">
+                <span asp-validation-for="ProvinceOrState" class="text-danger"></span>
+                <input asp-for="ProvinceOrState" class="form-control mx-3" />
+            </div>
+        </div>
+
+        <!-- ZipOrPostalCode field -->
+        <div class="form-group d-flex justify-content-between align-items-center pb-3">
+            <label asp-for="ZipOrPostalCode" class=" mr-2">Zip/Postal Code:</label>
+            <div class="input-group ">
+                <span asp-validation-for="ZipOrPostalCode" class="text-danger"></span>
+                <input asp-for="ZipOrPostalCode" class="form-control mx-3" />
+            </div>
+        </div>
+
+        <!-- Phone field -->
+        <div class="form-group d-flex justify-content-between align-items-center pb-3">
+            <label asp-for="Phone" class="mr-2">Phone:</label>
+            <div class="input-group ">
+                <span asp-validation-for="Phone" class="text-danger"></span>
+                <input asp-for="Phone" class="form-control mx-3" />
+            </div>
+        </div>
+
+        <!-- ContactLastName field -->
+        <div class="form-group d-flex justify-content-between align-items-center pb-3">
+            <label asp-for="ContactLastName" class="mr-2">Contact Last Name:</label>
+            <div class="input-group ">
+                <span asp-validation-for="ContactLastName" class="text-danger"></span>
+                <input asp-for="ContactLastName" class="form-control mx-3" />
+            </div>
+        </div>
+
+        <!-- ContactFirstName field -->
+        <div class="form-group d-flex justify-content-between align-items-center pb-3">
+            <label asp-for="ContactFirstName" class="mr-2">Contact First Name:</label>
+            <div class="input-group ">
+                <span asp-validation-for="ContactFirstName" class="text-danger"></span>
+                <input asp-for="ContactFirstName" class="form-control mx-3" />
+            </div>
+        </div>
+
+        <!-- ContactEmail field -->
+        <div class="form-group d-flex justify-content-between align-items-center pb-3">
+            <label asp-for="ContactEmail" class="mr-2">Contact Email:</label>
+            <div class="input-group ">
+                <span asp-validation-for="ContactEmail" class="text-danger"></span>
+                <input asp-for="ContactEmail" class="form-control mx-3" />
+            </div>
+        </div>
+
+        <!-- Form actions -->
+        <div class="form-actions d-flex form-submit">
+            <button type="submit" class="btn btn-primary">@ViewData["Title"]</button>
+            <a asp-action="Index" class="btn btn-cus btn-primary">Cancel</a>
+        </div>
+    </form>
+</div>
+
+
+@section Scripts {
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var form = document.querySelector("form");
+            form.addEventListener("submit", function (event) {
+                setTimeout(function () {
+                    var errorMessages = document.querySelectorAll(".field-validation-error");
+                    var genericErrorMessage = document.getElementById("generic-error-message");
+
+                    if (errorMessages.length > 0) {
+                        // Show the generic error message
+                        genericErrorMessage.classList.remove("d-none");
+                    } else {
+                        genericErrorMessage.classList.add("d-none");
+                    }
+                }, 100); // A short delay to allow client-side validation to update the DOM
+            });
+        });
+    </script>
+}

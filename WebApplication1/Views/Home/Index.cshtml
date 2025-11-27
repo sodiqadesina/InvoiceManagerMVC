@@ -1,0 +1,46 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Customer Payment Invoice System <a asp-action="index" asp-controller="Customers">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<div>
+    <h2>Overview</h2>
+    <p>Developed an ASP.NET Core MVC web application for managing customer invoices. This app features a rich data model including several 1-to-1 and 1-to-many relationships, addressing key functionalities in invoice management.</p>
+</div>
+
+<div>
+    <h2>Key Features</h2>
+    <ul>
+        <li>Customer & Invoice Management: Allows for display, addition, editing, and soft deletion of customers. Includes an undo feature for delete actions.</li>
+        <li>Detailed Invoice Viewing: Enables viewing of customer invoices, their total amounts, and line items.</li>
+        <li>Data Validation & UI: Implements data validation constraints and utilizes ASP.NET Core mechanisms for UI reuse in Razor views.</li>
+        <li>Database Interaction: Employs LINQ and EF Core for database interactions.</li>
+    </ul>
+</div>
+
+<div>
+    <h2>Technological Implementation</h2>
+    <ul>
+        <li>Unit Testing: Incorporates xUnit for unit testing of core business logic.</li>
+        <li>Web App Structure: Follows best practices in structuring ASP.NET Core MVC Web Apps.</li>
+        <li>Entity Framework Core: Used for handling database-related functionalities.</li>
+        <li>Partial Views: Utilizes partial views to avoid repetitive form elements.</li>
+    </ul>
+</div>
+
+<div>
+    <h2>Development Approach</h2>
+    <ul>
+        <li>Scalable Design: Focuses on a scalable and interactive design, accommodating future enhancements.</li>
+        <li>Technologies Used: C#, ASP.NET Core, Entity Framework Core, LINQ, Razor Pages, HTML, CSS, JavaScript.</li>
+    </ul>
+</div>
+
+<div>
+    <h2>Database Schema</h2>
+    <img src="https://az900tests.blob.core.windows.net/pictures/cinvoice-db.png" alt="Database Schema">
+</div>
