@@ -9,7 +9,7 @@
         public string? Description { get; set; }
 
         // FK:
-        public int? InvoiceId { get; set; }
+        public int InvoiceId { get; set; } //Require Foreign Key to Invoice
 
         // Navigation property because Each line item belongs to one invoice
         public Invoice Invoice { get; set; }
