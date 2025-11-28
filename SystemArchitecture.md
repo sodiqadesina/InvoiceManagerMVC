@@ -175,7 +175,7 @@
     
     - A set of invoice line items (e.g., “Trip 1”, “Service ABC”, etc.) attached to invoices.
   
-  So when you run migrations, the database is pre-populated with sample customers, invoices, line items, and terms.
+  So when we run migrations, the database is pre-populated with sample customers, invoices, line items, and terms.
 
 # 4. View models (Models)
 
