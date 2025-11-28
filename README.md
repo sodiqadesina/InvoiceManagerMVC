@@ -1,9 +1,9 @@
 ## InvoiceManagerMVC
-  InvoiceManagerMVC is a simple Proof of concept ASP.NET Core MVC application for managing customers, invoices, payment terms, and line items. It provides a clean and professional workflow for businesses to track billing activity. The system is built using EF Core, SQL Server, Razor views, Bootstrap, and a layered service architecture.
+  InvoiceManagerMVC is a simple Proof of concept ASP.NET Core MVC application for managing customers, invoices, payment terms, and line items. It provides a clean and professional workflow for businesses to track billing activity. It  features a rich data model including several  1-to-many relationships, addressing key functionalities in invoice management. The system is built using EF Core, SQL Server, Razor views, Bootstrap, and a layered service architecture.
 
 ## Key Features
 
-  - Customer management with full CRUD and soft delete
+  - Customer management with full CRUD and soft delete and Includes an undo feature for delete actions.
   
   - Invoice creation linked to payment terms
   
