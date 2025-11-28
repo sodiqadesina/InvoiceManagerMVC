@@ -1,46 +1,54 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Home";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Customer Payment Invoice System <a asp-action="index" asp-controller="Customers">building Web apps with ASP.NET Core</a>.</p>
+<div class="text-center mt-4">
+    <h1 class="display-4">Invoice Manager</h1>
+    <p class="lead">A simple and efficient system for managing customers, invoices, and payment records.</p>
 </div>
 
-<div>
-    <h2>Overview</h2>
-    <p>Developed an ASP.NET Core MVC web application for managing customer invoices. This app features a rich data model including several 1-to-1 and 1-to-many relationships, addressing key functionalities in invoice management.</p>
-</div>
-
-<div>
-    <h2>Key Features</h2>
+<div class="mt-5">
+    <h2>What You Can Do</h2>
+    <p>This application lets you perform the core tasks required for customer billing and invoice tracking:</p>
     <ul>
-        <li>Customer & Invoice Management: Allows for display, addition, editing, and soft deletion of customers. Includes an undo feature for delete actions.</li>
-        <li>Detailed Invoice Viewing: Enables viewing of customer invoices, their total amounts, and line items.</li>
-        <li>Data Validation & UI: Implements data validation constraints and utilizes ASP.NET Core mechanisms for UI reuse in Razor views.</li>
-        <li>Database Interaction: Employs LINQ and EF Core for database interactions.</li>
+        <li>Manage customer profiles including contact and billing information.</li>
+        <li>Create and maintain invoices with dynamic line items and totals.</li>
+        <li>Assign payment terms to invoices and automatically compute due dates.</li>
+        <li>Review invoice summaries and detailed invoice breakdowns.</li>
     </ul>
 </div>
 
-<div>
-    <h2>Technological Implementation</h2>
+<div class="mt-4">
+    <h2>Quick Navigation</h2>
+    <p>Select a starting point below:</p>
     <ul>
-        <li>Unit Testing: Incorporates xUnit for unit testing of core business logic.</li>
-        <li>Web App Structure: Follows best practices in structuring ASP.NET Core MVC Web Apps.</li>
-        <li>Entity Framework Core: Used for handling database-related functionalities.</li>
-        <li>Partial Views: Utilizes partial views to avoid repetitive form elements.</li>
+        <li><a asp-action="index" asp-controller="Customers">View Customers</a></li>
+        <li><a asp-action="AddOrEdit" asp-controller="Customers">Add a New Customer</a></li>
     </ul>
 </div>
 
-<div>
-    <h2>Development Approach</h2>
-    <ul>
-        <li>Scalable Design: Focuses on a scalable and interactive design, accommodating future enhancements.</li>
-        <li>Technologies Used: C#, ASP.NET Core, Entity Framework Core, LINQ, Razor Pages, HTML, CSS, JavaScript.</li>
-    </ul>
+<div class="mt-5">
+    <h2>About This Application</h2>
+    <p>
+        Invoice Manager is built using ASP.NET Core MVC and Entity Framework Core.
+        It demonstrates clean architectural patterns, strong data relationships, and
+        a modular UI using Razor views and partial views. The system supports
+        full CRUD operations, validation rules, and a scalable design suitable
+        for real-world invoice management workflows.
+    </p>
 </div>
 
-<div>
-    <h2>Database Schema</h2>
-    <img src="https://az900tests.blob.core.windows.net/pictures/cinvoice-db.png" alt="Database Schema">
+<div class="mt-5">
+    <h2>System Architecture Diagram</h2>
+    <img src="~/Images/ITCSystem-Architecture-Diagram.png"
+         alt="System Architecture Diagram"
+         class="img-fluid border rounded shadow-sm" />
 </div>
+
+<div class="mt-5">
+    <h2>Entity Relationship Diagram (ERD)</h2>
+    <img src="~/Images/ITC-ERD.png"
+         alt="Entity Relationship Diagram"
+         class="img-fluid border rounded shadow-sm" />
+</div>
+
