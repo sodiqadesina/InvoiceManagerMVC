@@ -23,6 +23,9 @@
 
   The application follows the ASP.NET Core MVC pattern. Responsibilities are separated into the presentation layer, controllers, services, EF Core data layer, and SQL Server storage.
 
+  [System Architecture](SystemArchitecture.md)
+
+
   Architecture Summary :
   
   - Client browser sends HTTP GET and POST requests
